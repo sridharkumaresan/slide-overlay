@@ -1,0 +1,29 @@
+<div
+  #container
+  [ngClass]="{
+    'bd-sideoverlay container content shadow': true,
+    'bd-sideoverlay-active': visible,
+    'bd-sideoverlay-left': position === 'left',
+    'bd-sideoverlay-right': position === 'right',
+    'bd-sideoverlay-top': position === 'top',
+    'bd-sideoverlay-bottom': position === 'bottom',
+    'bd-sideoverlay-full': fullScreen
+  }"
+  [@panelState]="visible ? 'visible' : 'hidden'"
+  [ngStyle]="style"
+  [class]="styleClass"
+>
+  <a
+    [ngClass]="{ 'bd-sideoverlay-close': true }"
+    *ngIf="showCloseIcon"
+    tabindex="0"
+    role="button"
+    (click)="close($event)"
+    (keydown.enter)="close($event)"
+  >
+    <span class="times"></span>
+  </a>
+  <section class="bd-sideoverlay-content">
+    <ng-content></ng-content>
+  </section>
+</div>

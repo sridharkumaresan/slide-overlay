@@ -1,0 +1,38 @@
+<mat-card class="cut-corner-transparent">
+  <mat-card-header>
+    <h4>
+      Slide Overlay Demo
+    </h4>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="example-button-row evenly-like">
+      <button mat-flat-button (click)="defaultRight = true" class="cut-corner--secondary">Default (right)</button>
+      <button mat-flat-button color="primary" class="cut-corner--primary" (click)="left = true">Left</button>
+      <button mat-flat-button color="accent"class="cut-corner--accent" (click)="top = true">Top</button>
+      <button mat-flat-button color="warn" class="cut-corner--warn" (click)="bottom = true">Bottom</button>
+      <button mat-flat-button class="cut-corner--anotherone" (click)="full = true">Full Screen</button>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+
+<div class="overlay-implementation">
+  <bd-slide-overlay [(visible)]="defaultRight">
+    <mat-card>
+      Sample Implementation
+      <button mat-flat-button (click)="close()">close</button>
+    </mat-card>
+  </bd-slide-overlay>
+  <bd-slide-overlay [(visible)]="left" position="left" [style]="{width:'70%'}">
+    <mat-card>Overlay Sample Implementation</mat-card>
+  </bd-slide-overlay>
+  <bd-slide-overlay [(visible)]="top" position="top">
+    <mat-card>Overlay Sample Implementation</mat-card>
+  </bd-slide-overlay>
+  <bd-slide-overlay [(visible)]="bottom" position="bottom">
+    <mat-card>Overlay Sample Implementation</mat-card>
+  </bd-slide-overlay>
+  <bd-slide-overlay [(visible)]="full" [fullScreen]="true">
+    <mat-card>Overlay Sample Implementation</mat-card>
+  </bd-slide-overlay>
+</div>

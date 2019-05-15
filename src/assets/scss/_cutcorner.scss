@@ -1,0 +1,25 @@
+@import './material-base';
+
+@mixin color-modifiers($attribute: 'background-color', $prefix: '-') {
+  @each $name, $hex in $palettes {
+    &#{$prefix}#{$name} {
+      #{$attribute}: transparent !important;
+      @include cut-corner(4px, $hex)
+    }
+  }
+}
+
+@mixin cut-corner($borderpx, $color: white) {
+  background: linear-gradient(135deg, transparent $borderpx, $color 0) top left,
+              linear-gradient(225deg, transparent $borderpx, $color 0) top right,
+              linear-gradient(315deg, transparent $borderpx, $color 0) bottom right,
+              linear-gradient(45deg, transparent $borderpx, $color 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 0 rgba(0,0,0,0.0), 0 0 0 0 rgba(0,0,0,0.0), 0 0 0 0 rgba(0,0,0,0.0);
+  border: none;
+}
+
+.cut-corner {
+  @include color-modifiers($prefix: '--' )
+}

@@ -1,0 +1,21 @@
+@import '~@angular/material/theming';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+@include mat-core();
+$mytheme-app-primary: mat-palette($mat-deep-purple, 700, 600);
+$mytheme-app-accent: mat-palette($mat-pink, A200, 900, A100);
+$mytheme-app-warn: mat-palette($mat-deep-orange);
+$mytheme-app-theme: mat-light-theme($mytheme-app-primary, $mytheme-app-accent, $mytheme-app-warn);
+@include angular-material-theme($mytheme-app-theme);
+
+$primary: map-get($mytheme-app-theme, primary);
+$accent: map-get($mytheme-app-theme, accent);
+$warn: map-get($mytheme-app-theme, warn);
+
+$palettes: (
+  primary: mat-color($primary),
+  accent: mat-color($accent),
+  warn: mat-color($warn),
+  secondary: #00acc1,
+  anotherone: #00c853
+);
