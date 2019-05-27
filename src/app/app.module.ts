@@ -4,10 +4,12 @@ import {MatButtonModule, MatCardModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { SlideOverlayModule } from './slide-overlay/slide-overlay.module';
+import { TimelineComponent } from './timeline/timeline.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TimelineComponent
   ],
   imports: [
     BrowserModule,
