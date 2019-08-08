@@ -12,7 +12,7 @@ export class AppComponent {
   top;
   bottom;
   full;
-
+  temp = [1,2,3];
   close() {
     this.defaultRight = false;
   }

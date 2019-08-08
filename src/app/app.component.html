@@ -1,4 +1,4 @@
-<!-- <mat-card class="cut-corner-transparent image1">
+<mat-card class="cut-corner-transparent image1">
   <mat-card-header>
     <h4>
       Slide Overlay Demo
@@ -17,13 +17,13 @@
 
 
 <div class="overlay-implementation">
-  <bd-slide-overlay [(visible)]="defaultRight">
-    <mat-card>
-      Sample Implementation
-      <button mat-flat-button (click)="close()">close</button>
-    </mat-card>
+  <bd-slide-overlay [(visible)]="defaultRight" [style]="{width:'70%'}">
+
+      <ng-container *ngTemplateOutlet="template"></ng-container>
+
+
   </bd-slide-overlay>
-  <bd-slide-overlay [(visible)]="left" position="left" [style]="{width:'70%'}">
+  <bd-slide-overlay [(visible)]="left" position="left">
     <mat-card>Overlay Sample Implementation</mat-card>
   </bd-slide-overlay>
   <bd-slide-overlay [(visible)]="top" position="top">
@@ -35,6 +35,21 @@
   <bd-slide-overlay [(visible)]="full" [fullScreen]="true">
     <mat-card>Overlay Sample Implementation</mat-card>
   </bd-slide-overlay>
-</div> -->
+</div>
+<ng-template #template>
+  <div class="container">
+    <div class="header">
+      Header
+    </div>
+    <div class="main">
+      <ng-container *ngTemplateOutlet="panel"></ng-container>
+    </div>
+    <div class="footer">
+      Footer
+    </div>
+  </div>
+</ng-template>
 
-<timeline></timeline>
+<ng-template #panel>
+  <app-some></app-some>
+</ng-template>
