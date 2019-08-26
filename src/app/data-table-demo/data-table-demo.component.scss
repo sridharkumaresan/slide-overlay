@@ -1,0 +1,20 @@
+:host {
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 70px);
+}
+
+app-scroll-container {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+app-scroll-container.full {
+  flex-basis: auto;
+  flex-grow: 1;
+}
+
+app-scroll-container.part {
+  flex-basis: calc(100vh - 240px);
+}

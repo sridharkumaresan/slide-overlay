@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'slide-overlay';
   defaultRight;
   left;
+  moreleft;
   top;
   bottom;
   full;
