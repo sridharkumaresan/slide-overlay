@@ -1,0 +1,5 @@
+<form [formGroup]="uploadForm" (ngSubmit)="submit()" class="upload-form">
+  <app-file-upload formControlName="attachment"></app-file-upload>
+  <ng-container *ngIf="hasError('attachment', 'requiredFileSize')">Max Size 10MB</ng-container>
+  <button mat-raised-button color="primary" [disabled]="!uploadForm.valid">Add Attachment</button>
+</form>

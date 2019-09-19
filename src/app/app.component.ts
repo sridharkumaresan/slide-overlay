@@ -14,7 +14,22 @@ export class AppComponent {
   bottom;
   full;
   temp = [1,2,3];
+
+  files: File[] = [];
   close() {
     this.defaultRight = false;
+  }
+
+
+
+  getFile(file: any) {
+    const _file: File = file.attachment;
+    this.left=false;
+    this.files.push(file);
+    console.log('Get Files method ', this.files);
+  }
+
+  upload() {
+    console.log('Uploading... ', this.files);
   }
 }

@@ -1,0 +1,12 @@
+<!-- <div class="file-drop-area">
+  <span class="file-msg">{{file ? file.name : 'or drag and drop file here' }}</span>
+  <input class="file-input" type="file">
+  <span class="fake-btn">Choose file</span>
+</div> -->
+
+
+<div class="file-upload-section">
+    {{file ? file.name : 'Choose File' }}
+    <input type="file" (click)="launchRipple()"/>
+    <button class="browse" mat-button mat-elevation-z4 color="primary" matRipple >BROWSE</button>
+</div>

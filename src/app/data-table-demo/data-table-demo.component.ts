@@ -1,8 +1,9 @@
 import { DemoService } from './demo.service';
-import { Component, OnInit } from '@angular/core';
-import { filter } from 'rxjs/operators';
+import { Component, OnInit, Input } from '@angular/core';
+import { filter, tap, pluck, map } from 'rxjs/operators';
 import { noop as _noop } from 'lodash-es';
 import { MatTableDataSource } from '@angular/material';
+import { TabDemoService } from '../tab-demo/tab-demo.service';
 
 @Component({
   selector: 'app-data-table-demo',
@@ -13,11 +14,19 @@ export class DataTableDemoComponent implements OnInit {
   dataSource: MatTableDataSource<any[]> = new MatTableDataSource<any[]>();
   limit: number = 1000;
   full: boolean = true;
-
-  constructor(private demoService: DemoService) { }
+  data$;
+  @Input() page;
+  constructor(private demoService: DemoService, private svc: TabDemoService) { }
 
   ngOnInit() {
     this.buildData();
+    this.data$ = this.getData(this.page)
+      .pipe(
+        map(d => { return {...d, ip: `ip_address${this.page}`}})
+      )
+  }
+  getData(page) {
+    return this.svc.getSomething().pipe(pluck('data'), tap(console.log))
   }
 
   buildData = (): void => {

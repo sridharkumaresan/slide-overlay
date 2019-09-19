@@ -1,20 +1,6 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {
-  MatExpansionModule,
-  MatTabsModule,
-  MatTableModule,
-  MatPaginatorModule,
-  MatButtonModule,
-  MatIconModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatSelectModule,
-  MatProgressSpinnerModule,
-  MatCardModule,
-  MatCheckboxModule} from '@angular/material';
-
 import { AppComponent } from './app.component';
 import { SlideOverlayModule } from './slide-overlay/slide-overlay.module';
 import { TimelineComponent } from './timeline/timeline.component';
@@ -27,6 +13,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { TabDemoComponent } from './tab-demo/tab-demo.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ScrollContainerComponent } from './scroll-container/scroll-container.component';
+import { MaterialModule } from './material/material.module';
+import { FileUploadFormComponent } from './file-upload-form/file-upload-form.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { FileUploadListComponent } from './file-upload-list/file-upload-list.component';
 
 
 @NgModule({
@@ -38,25 +28,17 @@ import { ScrollContainerComponent } from './scroll-container/scroll-container.co
     DataTableComponent,
     DataTableDemoComponent,
     TabDemoComponent,
-    ScrollContainerComponent
+    ScrollContainerComponent,
+    FileUploadFormComponent,
+    FileUploadComponent,
+    FileUploadListComponent
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTabsModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatButtonModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule ,
-    MatProgressSpinnerModule,
-    MatCardModule,
-    MatExpansionModule,
-    MatCheckboxModule,
+    MaterialModule,
     SlideOverlayModule,
     HttpClientModule,
     ScrollingModule

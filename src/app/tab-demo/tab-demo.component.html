@@ -1,5 +1,8 @@
-<mat-tab-group mat-stretch-tabs mat-align-tabs="center" *ngIf="tabs$ | async as tabs">
+<mat-tab-group mat-stretch-tabs mat-align-tabs="center" *ngIf="tabs$ | async as tabs" (selectedTabChange)="tabChanged($event)">
   <mat-tab [label]="tab.value" *ngFor="let tab of tabs">
+    <ng-template matTabLabel>
+        <span matBadge="5" matBadgeOverlap="false">{{tab.count}}</span>
+    </ng-template>
   </mat-tab>
 </mat-tab-group>
-<app-data-table-demo></app-data-table-demo>
+<app-data-table-demo [page]="page"></app-data-table-demo>

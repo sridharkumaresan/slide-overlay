@@ -1,6 +1,21 @@
-<app-tab-demo></app-tab-demo>
+<!-- <app-tab-demo></app-tab-demo> -->
 
-<!-- <mat-card class="cut-corner-transparent image1">
+<!-- <mat-drawer-container
+  [class.drawer-opened]="drawer.opened"
+  class="example-container">
+  <mat-drawer #drawer
+    class="drawer"
+    mode="side"
+    opened="false"
+    position="end">
+    <mat-toolbar class="header">
+      <div>Title</div>
+    </mat-toolbar>
+    <div class="contents">
+      Drawer
+    </div>
+  </mat-drawer> -->
+<mat-card class="cut-corner-transparent image1">
   <mat-card-header>
     <h4>
       Slide Overlay Demo
@@ -8,8 +23,9 @@
   </mat-card-header>
   <mat-card-content>
     <div class="example-button-row evenly-like">
+      <!-- <button mat-raised-button (click)="drawer.toggle()">Drawer Opened - {{drawer.opened}} </button> -->
       <button mat-flat-button (click)="defaultRight = true" class="cut-corner--secondary">Default (right)</button>
-      <button mat-flat-button color="primary" class="cut-corner--primary" (click)="left = true">Left</button>
+      <button mat-flat-button color="primary" class="cut-corner--primary" (click)="left = true">File Upload</button>
       <button mat-flat-button color="accent"class="cut-corner--accent" (click)="top = true">Top</button>
       <button mat-flat-button color="warn" class="cut-corner--warn" (click)="bottom = true">Bottom</button>
       <button mat-flat-button class="cut-corner--anotherone" (click)="full = true">Full Screen</button>
@@ -18,7 +34,9 @@
 </mat-card>
 <mat-card>
   <mat-card-content>
-    <app-tab-demo></app-tab-demo>
+    <!-- <app-tab-demo></app-tab-demo> -->
+    <app-file-upload-list [fileSet]="files"></app-file-upload-list>
+    <button mat-raised-button class="primary" (click)="upload()">Upload</button>
   </mat-card-content>
 </mat-card>
 
@@ -31,11 +49,13 @@
 
   </bd-slide-overlay>
   <bd-slide-overlay [(visible)]="left" position="left" [style]="{width:'70%'}">
-    <mat-card>Overlay Sample Implementation</mat-card>
-    <button mat-button color="primary" (click)="moreleft = true">Open Another</button>
+    <mat-card>
+      <app-file-upload-form (file)="getFile($event)" [maxFileSize]="4"></app-file-upload-form>
+    </mat-card>
   </bd-slide-overlay>
   <bd-slide-overlay [(visible)]="top" position="top">
-    <mat-card>Overlay Sample Implementation</mat-card>
+    <mat-card>
+    </mat-card>
   </bd-slide-overlay>
   <bd-slide-overlay [(visible)]="bottom" position="bottom">
     <mat-card>Overlay Sample Implementation</mat-card>
@@ -63,4 +83,5 @@
 </ng-template>
 
 
-<bd-slide-overlay [(visible)]="moreleft" position="left"></bd-slide-overlay> -->
+<!-- </mat-drawer-container> -->
+<bd-slide-overlay [(visible)]="moreleft" position="left" baseZIndex=0></bd-slide-overlay>
