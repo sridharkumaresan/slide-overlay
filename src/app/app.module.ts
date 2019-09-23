@@ -17,6 +17,8 @@ import { MaterialModule } from './material/material.module';
 import { FileUploadFormComponent } from './file-upload-form/file-upload-form.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { FileUploadListComponent } from './file-upload-list/file-upload-list.component';
+import { CdkTableDemoComponent } from './cdk-table-demo/cdk-table-demo.component';
+import { ActionFlyoutComponent } from './action-flyout/action-flyout.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { FileUploadListComponent } from './file-upload-list/file-upload-list.com
     ScrollContainerComponent,
     FileUploadFormComponent,
     FileUploadComponent,
-    FileUploadListComponent
+    FileUploadListComponent,
+    CdkTableDemoComponent,
+    ActionFlyoutComponent
   ],
   imports: [
     BrowserAnimationsModule,

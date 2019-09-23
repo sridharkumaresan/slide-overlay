@@ -1,9 +1,11 @@
+import  { ACTIONS, ActionMaker, ActionService } from './../action.service';
 import { DemoService } from './demo.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { filter, tap, pluck, map } from 'rxjs/operators';
 import { noop as _noop } from 'lodash-es';
 import { MatTableDataSource } from '@angular/material';
 import { TabDemoService } from '../tab-demo/tab-demo.service';
+import { SelectionModel } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-data-table-demo',
@@ -12,21 +14,19 @@ import { TabDemoService } from '../tab-demo/tab-demo.service';
 })
 export class DataTableDemoComponent implements OnInit {
   dataSource: MatTableDataSource<any[]> = new MatTableDataSource<any[]>();
+  selection = new SelectionModel<any>(true, [], true);
   limit: number = 1000;
   full: boolean = true;
   data$;
+  actionFlyoutData: ActionMaker;
+  ACTIONS = ACTIONS;
   @Input() page;
-  constructor(private demoService: DemoService, private svc: TabDemoService) { }
+  constructor(private demoService: DemoService, private actionService: ActionService) {
+    console.log('Cons ', this.selection);
+  }
 
   ngOnInit() {
     this.buildData();
-    this.data$ = this.getData(this.page)
-      .pipe(
-        map(d => { return {...d, ip: `ip_address${this.page}`}})
-      )
-  }
-  getData(page) {
-    return this.svc.getSomething().pipe(pluck('data'), tap(console.log))
   }
 
   buildData = (): void => {
@@ -43,8 +43,11 @@ export class DataTableDemoComponent implements OnInit {
 
   hasMore = () => !this.dataSource || this.dataSource.data.length < this.limit;
 
-  selectedData = (e) => {
-    console.log('Selected Data => ', e)
+  doAction(action: ACTIONS) {
+    const selected: any[] = this.selection.selected;
+    this.selection = new SelectionModel(true, [ ...selected ], true);
+    this.actionFlyoutData = ActionMaker.create({action: action, items: selected});
+    this.actionService.announceAction(this.actionFlyoutData);
   }
 
 }

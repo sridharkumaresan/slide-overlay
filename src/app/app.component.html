@@ -15,7 +15,7 @@
       Drawer
     </div>
   </mat-drawer> -->
-<mat-card class="cut-corner-transparent image1">
+<!-- <mat-card class="cut-corner-transparent image1">
   <mat-card-header>
     <h4>
       Slide Overlay Demo
@@ -23,7 +23,7 @@
   </mat-card-header>
   <mat-card-content>
     <div class="example-button-row evenly-like">
-      <!-- <button mat-raised-button (click)="drawer.toggle()">Drawer Opened - {{drawer.opened}} </button> -->
+      <button mat-raised-button (click)="drawer.toggle()">Drawer Opened - {{drawer.opened}} </button>
       <button mat-flat-button (click)="defaultRight = true" class="cut-corner--secondary">Default (right)</button>
       <button mat-flat-button color="primary" class="cut-corner--primary" (click)="left = true">File Upload</button>
       <button mat-flat-button color="accent"class="cut-corner--accent" (click)="top = true">Top</button>
@@ -31,17 +31,17 @@
       <button mat-flat-button class="cut-corner--anotherone" (click)="full = true">Full Screen</button>
     </div>
   </mat-card-content>
-</mat-card>
-<mat-card>
+</mat-card> -->
+<mat-card style="margin: 0; padding: 0;">
   <mat-card-content>
-    <!-- <app-tab-demo></app-tab-demo> -->
-    <app-file-upload-list [fileSet]="files"></app-file-upload-list>
-    <button mat-raised-button class="primary" (click)="upload()">Upload</button>
+    <app-tab-demo></app-tab-demo>
+    <!-- <app-file-upload-list [fileSet]="files"></app-file-upload-list>
+    <button mat-raised-button class="primary" (click)="upload()">Upload</button> -->
   </mat-card-content>
 </mat-card>
 
 
-<div class="overlay-implementation">
+<!-- <div class="overlay-implementation">
   <bd-slide-overlay [(visible)]="defaultRight" [style]="{width:'70%'}">
 
       <ng-container *ngTemplateOutlet="template"></ng-container>
@@ -80,8 +80,9 @@
 
 <ng-template #panel>
   <app-some></app-some>
-</ng-template>
+</ng-template> -->
 
 
 <!-- </mat-drawer-container> -->
-<bd-slide-overlay [(visible)]="moreleft" position="left" baseZIndex=0></bd-slide-overlay>
+<!-- <bd-slide-overlay [(visible)]="moreleft" position="left" baseZIndex=0></bd-slide-overlay> -->
+<app-action-flyout></app-action-flyout>

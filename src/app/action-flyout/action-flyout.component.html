@@ -1,0 +1,36 @@
+<bd-slide-overlay [(visible)]="items.length" position="left" [baseZIndex]="0">
+  <div style="display: flex; flex-direction: column; justify-content: space-between">
+    <mat-card *ngFor="let item of items" class="card">
+      <mat-card-content>
+        {{item.first_name}}
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-header>
+        Action reasons
+      </mat-card-header>
+      <mat-card-content>
+      <div *ngIf="!(loading$ | async) && reasons?.length else loading">
+        <mat-list>
+          <mat-list-item *ngFor="let reason of reasons">
+            {{reason | uppercase}}
+          </mat-list-item>
+        </mat-list>
+      </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</bd-slide-overlay>
+
+
+<ng-template #loading>
+  <div class="example-section">
+      <mat-spinner
+      class="example-margin"
+      [color]="'primary'"
+      [mode]="'indeterminate'"
+      [diameter]="20">
+      </mat-spinner>
+  </div>
+</ng-template>
