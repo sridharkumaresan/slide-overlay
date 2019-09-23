@@ -1,5 +1,8 @@
 <bd-slide-overlay [(visible)]="items.length" position="left" [baseZIndex]="0">
   <div style="display: flex; flex-direction: column; justify-content: space-between">
+      <mat-chip-list>
+        <mat-chip color="accent" selected>{{action}}</mat-chip>
+      </mat-chip-list>
     <mat-card *ngFor="let item of items" class="card">
       <mat-card-content>
         {{item.first_name}}

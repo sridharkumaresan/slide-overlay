@@ -1,0 +1,11 @@
+cdk-virtual-scroll-viewport {
+  border: 1px solid black;
+
+  li {
+    list-style: none;
+  }
+}
+.scroll-viewport {
+  height: 100%;
+  width: 100%;
+}

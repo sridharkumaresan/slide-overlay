@@ -1,0 +1,5 @@
+<cdk-virtual-scroll-viewport itemSize="100" class="scroll-viewport">
+  <li *cdkVirtualFor="let item of dataSource">
+    {{item | json}}
+  </li>
+</cdk-virtual-scroll-viewport>

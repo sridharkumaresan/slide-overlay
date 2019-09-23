@@ -3,8 +3,9 @@
     <ng-template matTabLabel>
         <span matBadge="5" matBadgeOverlap="false">{{tab.count}}</span>
     </ng-template>
-    <ng-template matTabContent>
-      <app-data-table-demo [page]="page"></app-data-table-demo>
-    </ng-template>
+    <!-- <ng-template matTabContent>
+      <app-data-table-scroller-demo></app-data-table-scroller-demo>
+    </ng-template> -->
   </mat-tab>
 </mat-tab-group>
+<app-data-table-demo [page]="page"></app-data-table-demo>

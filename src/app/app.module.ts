@@ -19,6 +19,7 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 import { FileUploadListComponent } from './file-upload-list/file-upload-list.component';
 import { CdkTableDemoComponent } from './cdk-table-demo/cdk-table-demo.component';
 import { ActionFlyoutComponent } from './action-flyout/action-flyout.component';
+import { DataTableScrollerDemoComponent } from './data-table-scroller-demo/data-table-scroller-demo.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ActionFlyoutComponent } from './action-flyout/action-flyout.component';
     FileUploadComponent,
     FileUploadListComponent,
     CdkTableDemoComponent,
-    ActionFlyoutComponent
+    ActionFlyoutComponent,
+    DataTableScrollerDemoComponent
   ],
   imports: [
     BrowserAnimationsModule,

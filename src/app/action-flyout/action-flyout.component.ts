@@ -11,6 +11,7 @@ import { tap, distinctUntilChanged, pluck, takeUntil, switchMap, delay } from 'r
 export class ActionFlyoutComponent implements OnInit {
   visible: boolean = false;
   reasons: [];
+  action;
   private unsub$ = new Subject<void>();
   loading$ = new Subject<boolean>();
   items: any[] = [];
@@ -18,12 +19,15 @@ export class ActionFlyoutComponent implements OnInit {
   constructor(private actionService: ActionService) {
     this.actionService.action$.pipe(
       takeUntil(this.unsub$),
-      tap((action: Action) => this.items = action.items),
+      tap((action: Action) => {
+        this.items = action.items;
+        this.action = action.action;
+      }),
       switchMap((action: Action) => {
         this.loading$.next(true);
         return this.actionService.getReasons(action.action)
       }),
-      delay(3000)
+      delay(1800)
       )
       .subscribe(
         (reasons: any) => {
