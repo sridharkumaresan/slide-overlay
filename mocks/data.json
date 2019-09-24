@@ -940,6 +940,10 @@
     ]
   },
   "reasons": [
-    "reason1", "reason2", "reason3", "reason4"
+    { "key": "reason1", "value": "Reason 1" },
+    { "key": "reason2", "value": "Reason 2" },
+    { "key": "reason3", "value": "Reason 3" },
+    { "key": "reason4", "value": "Reason 4" },
+    { "key": "reason5", "value": "Reason 5" }
   ]
 }

@@ -1,0 +1,19 @@
+<form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+  <mat-form-field>
+    <mat-label>Reason</mat-label>
+    <mat-select formControlName="reasons">
+      <mat-option [value]="null" disabled>Choose reason</mat-option>
+      <mat-option *ngFor="let reason of dropDownList" [value]="reason">
+        {{reason.value}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <textarea formControlName="comment" matInput placeholder="Leave a comment"></textarea>
+  </mat-form-field>
+  <div style="display: flex; flex-direction: row; align-items: center;">
+    <button mat-raised-button color="primary" [attr.disabled]="isLoading">Submit</button>
+    <mat-spinner [diameter]="18" *ngIf="isLoading"></mat-spinner>
+  </div>
+
+</form>

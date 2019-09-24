@@ -1,6 +1,6 @@
 import { ActionService, Action, ACTIONS } from './../action.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { Observable, Subject, BehaviorSubject } from 'rxjs';
+import { Observable, Subject, BehaviorSubject, of } from 'rxjs';
 import { tap, distinctUntilChanged, pluck, takeUntil, switchMap, delay } from 'rxjs/operators';
 
 @Component({
@@ -14,6 +14,7 @@ export class ActionFlyoutComponent implements OnInit {
   action;
   private unsub$ = new Subject<void>();
   loading$ = new Subject<boolean>();
+  disableForm$ = new Subject<boolean>();
   items: any[] = [];
 
   constructor(private actionService: ActionService) {
@@ -44,4 +45,26 @@ export class ActionFlyoutComponent implements OnInit {
     this.unsub$.complete();
   }
 
+  receiveForm(form) {
+    console.table(form);
+    // Call the service to post action
+    this.postAction();
+  }
+
+  postAction() {
+    this.disableForm$.next(true);
+    const temp = of([]);
+    temp.pipe(
+      delay(2000),
+      takeUntil(this.unsub$)
+    )
+    .subscribe(
+      data => {
+        this.disableForm$.next(false);
+        setTimeout(()=>{
+          this.items = [];
+        }, 1000);
+      }
+    )
+  }
 }

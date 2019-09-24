@@ -35,11 +35,14 @@
 <mat-card style="margin: 0; padding: 0;">
   <mat-card-content>
     <app-tab-demo></app-tab-demo>
-    <!-- <app-file-upload-list [fileSet]="files"></app-file-upload-list>
-    <button mat-raised-button class="primary" (click)="upload()">Upload</button> -->
   </mat-card-content>
 </mat-card>
-
+<!-- <mat-card style="margin: 0; padding: 0;">
+  <mat-card-content>
+    <app-file-upload-list [fileSet]="files"></app-file-upload-list>
+    <button mat-raised-button class="primary" (click)="upload()">Upload</button>
+  </mat-card-content>
+</mat-card> -->
 
 <!-- <div class="overlay-implementation">
   <bd-slide-overlay [(visible)]="defaultRight" [style]="{width:'70%'}">
@@ -57,7 +60,7 @@
     <mat-card>
     </mat-card>
   </bd-slide-overlay>
-  <bd-slide-overlay [(visible)]="bottom" position="bottom">
+  <bd-slide-overlay [(visible)]="bottom" position="left">
     <mat-card>Overlay Sample Implementation</mat-card>
   </bd-slide-overlay>
   <bd-slide-overlay [(visible)]="full" [fullScreen]="true">

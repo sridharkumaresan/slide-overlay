@@ -1,24 +1,22 @@
 <bd-slide-overlay [(visible)]="items.length" position="left" [baseZIndex]="0">
   <div style="display: flex; flex-direction: column; justify-content: space-between">
-      <mat-chip-list>
+      <mat-chip-list style="margin-bottom: 1em;">
         <mat-chip color="accent" selected>{{action}}</mat-chip>
       </mat-chip-list>
-    <mat-card *ngFor="let item of items" class="card">
-      <mat-card-content>
+    <mat-list class="mat-elevation-z2" style="margin-bottom: 1em;">
+      <mat-list-item *ngFor="let item of items">
         {{item.first_name}}
-      </mat-card-content>
-    </mat-card>
+      </mat-list-item>
+    </mat-list>
     <mat-card>
-      <mat-card-header>
-        Action reasons
-      </mat-card-header>
       <mat-card-content>
       <div *ngIf="!(loading$ | async) && reasons?.length else loading">
-        <mat-list>
+        <app-form-data [dropDownList]="reasons" (emitForm)="receiveForm($event)" [isLoading]="disableForm$ | async"></app-form-data>
+        <!-- <mat-list>
           <mat-list-item *ngFor="let reason of reasons">
             {{reason | uppercase}}
           </mat-list-item>
-        </mat-list>
+        </mat-list> -->
       </div>
       </mat-card-content>
     </mat-card>
