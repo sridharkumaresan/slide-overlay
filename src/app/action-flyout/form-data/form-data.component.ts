@@ -8,14 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormDataComponent implements OnInit {
-  _dropDownList: any[] = [];
-  @Input()
-  set dropDownList(list: any[]) {
-    this._dropDownList = list;
-  }
-  get dropDownList() {
-    return this._dropDownList;
-  }
+  @Input() dropDownList;
   @Input() isLoading: boolean = false;
   @Output() emitForm: EventEmitter<any> = new EventEmitter();
 

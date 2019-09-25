@@ -53,8 +53,8 @@ export class ActionFlyoutComponent implements OnInit {
 
   postAction() {
     this.disableForm$.next(true);
-    const temp = of([]);
-    temp.pipe(
+    this.actionService.postAction()
+    .pipe(
       delay(2000),
       takeUntil(this.unsub$)
     )
@@ -63,6 +63,7 @@ export class ActionFlyoutComponent implements OnInit {
         this.disableForm$.next(false);
         setTimeout(()=>{
           this.items = [];
+          this.actionService.refreshGrid(true);
         }, 1000);
       }
     )
