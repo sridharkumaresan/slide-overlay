@@ -1,6 +1,6 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SlideOverlayModule } from './slide-overlay/slide-overlay.module';
 import { TimelineComponent } from './timeline/timeline.component';
@@ -21,6 +21,8 @@ import { CdkTableDemoComponent } from './cdk-table-demo/cdk-table-demo.component
 import { ActionFlyoutComponent } from './action-flyout/action-flyout.component';
 import { DataTableScrollerDemoComponent } from './data-table-scroller-demo/data-table-scroller-demo.component';
 import { FormDataComponent } from './action-flyout/form-data/form-data.component';
+import { SearchComponent } from './search/search.component';
+import { FilterFlyoutComponent } from './filter-flyout/filter-flyout.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { FormDataComponent } from './action-flyout/form-data/form-data.component
     CdkTableDemoComponent,
     ActionFlyoutComponent,
     DataTableScrollerDemoComponent,
-    FormDataComponent
+    FormDataComponent,
+    SearchComponent,
+    FilterFlyoutComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -52,6 +56,7 @@ import { FormDataComponent } from './action-flyout/form-data/form-data.component
     ScrollingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

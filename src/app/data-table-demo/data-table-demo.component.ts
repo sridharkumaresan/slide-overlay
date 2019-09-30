@@ -1,12 +1,10 @@
 import  { ACTIONS, ActionMaker, ActionService } from './../action.service';
 import { DemoService } from './demo.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { filter, tap, pluck, map, takeUntil } from 'rxjs/operators';
 import { noop as _noop } from 'lodash-es';
-import { MatTableDataSource } from '@angular/material';
-import { TabDemoService } from '../tab-demo/tab-demo.service';
+import { MatSort } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
-import { Observable, Subscription, Subject } from 'rxjs';
+import { DemoDataSource } from './demo-data.source';
 
 @Component({
   selector: 'app-data-table-demo',
@@ -14,55 +12,37 @@ import { Observable, Subscription, Subject } from 'rxjs';
   styleUrls: ['./data-table-demo.component.scss']
 })
 export class DataTableDemoComponent implements OnInit {
-  dataSource: MatTableDataSource<any[]> = new MatTableDataSource<any[]>();
   selection = new SelectionModel<any>(true, [], true);
-  reloadGrid: Subscription = new Subscription;
-  limit: number = 1000;
+  @Input() demoDataSource: DemoDataSource;
   full: boolean = true;
-  data$;
-  private unsub$ = new Subject<void>();
   actionFlyoutData: ActionMaker;
   ACTIONS = ACTIONS;
-  @Input() page;
 
   constructor(private demoService: DemoService, private actionService: ActionService) {
-    this.reloadGrid = this.actionService.reloadGrid$.subscribe(
-      shouldReload => {
-        if(shouldReload) {
-          this.reset();
-          this.buildData();
-        }
-      }
-    )
+
   }
 
   ngOnInit() {
-    this.buildData();
+
   }
 
   ngOnDestroy() {
-    this.unsub$.next();
-    this.unsub$.complete();
   }
 
   buildData = (): void => {
-    this.demoService.getData()
-    .pipe(
-      takeUntil(this.unsub$),
-      filter(data => data))
-    .subscribe((d: any[]) => {
-        const data: any[] = this.dataSource ? [...this.dataSource.data, ...d] : [];
-        this.dataSource = new MatTableDataSource(data)});
+
   }
 
   reset() {
-    this.dataSource = new MatTableDataSource([]);
+
   }
 
-  hasMore = () => !this.dataSource || this.dataSource.data.length < this.limit;
+  // TODO:: Change this logic
+  hasMore = () => true; //!this.dataSource || this.dataSource.data.length < this.limit;
 
   handleScroll = (scrolled: boolean) => {
-    scrolled ? this.buildData() : _noop();
+    // scrolled ? this.buildData() : _noop();
+    scrolled ? this.loadMoreData(): _noop();
   }
 
   doAction(action: ACTIONS) {
@@ -72,4 +52,14 @@ export class DataTableDemoComponent implements OnInit {
     this.actionService.announceAction(this.actionFlyoutData);
   }
 
+  loadMoreData() {
+    console.log('Loading More Data...');
+    this.demoDataSource.loadData('asc');
+  }
+
+  applySort = (e: MatSort): void => {
+    console.log('Sorting Changed ', e.direction);
+    this.demoDataSource.reset();
+    this.loadMoreData();
+  }
 }

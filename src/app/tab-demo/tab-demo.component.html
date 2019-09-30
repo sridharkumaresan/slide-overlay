@@ -1,11 +1,18 @@
-<mat-tab-group mat-stretch-tabs mat-align-tabs="center" *ngIf="tabs$ | async as tabs" (selectedTabChange)="tabChanged($event)">
-  <mat-tab [label]="tab.value" *ngFor="let tab of tabs">
-    <ng-template matTabLabel>
-        <span matBadge="5" matBadgeOverlap="false">{{tab.count}}</span>
-    </ng-template>
-    <!-- <ng-template matTabContent>
-      <app-data-table-scroller-demo></app-data-table-scroller-demo>
-    </ng-template> -->
-  </mat-tab>
-</mat-tab-group>
-<app-data-table-demo [page]="page"></app-data-table-demo>
+<div class="main-container">
+  <app-search (openFilter)="filterService.announceFilter($event)"></app-search>
+  <div class="progress-container" >
+    <mat-progress-bar color="warn" [mode]="'indeterminate'" *ngIf="demoDataSource.loading$ | async"></mat-progress-bar>
+  </div>
+  <mat-tab-group mat-stretch-tabs mat-align-tabs="center" [selectedIndex]="selectedIndex" (selectedTabChange)="tabChanged($event)">
+    <mat-tab [label]="tab.value" *ngFor="let tab of tabs">
+      <ng-template matTabLabel>
+          <span matBadge="5" matBadgeOverlap="false">{{tab.value}}</span>
+      </ng-template>
+      <!-- <ng-template matTabContent>
+        <app-data-table-scroller-demo></app-data-table-scroller-demo>
+      </ng-template> -->
+    </mat-tab>
+  </mat-tab-group>
+  <app-data-table-demo [demoDataSource]="demoDataSource" class="mat-elevation-z2"></app-data-table-demo>
+</div>
+

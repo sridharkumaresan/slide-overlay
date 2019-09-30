@@ -8,7 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   constructor() {
     const t = [ ... new Set([1,1,1,2])];
-    console.log('TTTTTtt', t);
   }
   title = 'slide-overlay';
   defaultRight;

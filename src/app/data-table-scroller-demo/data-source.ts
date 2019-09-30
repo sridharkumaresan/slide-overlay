@@ -40,7 +40,7 @@ export class TableDataSource extends DataSource<any | undefined> {
 
   private _fetchData(): void {
     for (let i = 0; i < this.pageSize; ++i) {
-      this.demoService.getData().subscribe(res => {
+      this.demoService.getData('asc').subscribe(res => {
         this.cachedData = this.cachedData.concat(res);
         this.dataStream.next(this.cachedData);
       });

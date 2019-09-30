@@ -1,0 +1,12 @@
+.progress-container {
+  height: 20px;
+}
+
+.main-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  border: 1px solid lightgrey;
+  background: #f2f2f2;
+  padding: 24px;
+}
