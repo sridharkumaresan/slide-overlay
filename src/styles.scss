@@ -37,3 +37,9 @@ body {
 .cdk-global-overlay-wrapper, .cdk-overlay-container {
   z-index: 99999 !important;
 }
+
+app-root {
+  // display: flex;
+  // flex-direction: column;
+  // flex: 1;
+}

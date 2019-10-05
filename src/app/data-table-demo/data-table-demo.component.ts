@@ -1,6 +1,6 @@
 import  { ACTIONS, ActionMaker, ActionService } from './../action.service';
 import { DemoService } from './demo.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { noop as _noop } from 'lodash-es';
 import { MatSort } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
@@ -14,6 +14,7 @@ import { DemoDataSource } from './demo-data.source';
 export class DataTableDemoComponent implements OnInit {
   selection = new SelectionModel<any>(true, [], true);
   @Input() demoDataSource: DemoDataSource;
+  @Output() scrollEmitter: EventEmitter<any> = new EventEmitter();
   full: boolean = true;
   actionFlyoutData: ActionMaker;
   ACTIONS = ACTIONS;
@@ -54,7 +55,8 @@ export class DataTableDemoComponent implements OnInit {
 
   loadMoreData() {
     console.log('Loading More Data...');
-    this.demoDataSource.loadData('asc');
+    // this.demoDataSource.loadData('asc');
+    this.scrollEmitter.emit(true);
   }
 
   applySort = (e: MatSort): void => {

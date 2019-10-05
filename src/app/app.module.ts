@@ -23,6 +23,8 @@ import { DataTableScrollerDemoComponent } from './data-table-scroller-demo/data-
 import { FormDataComponent } from './action-flyout/form-data/form-data.component';
 import { SearchComponent } from './search/search.component';
 import { FilterFlyoutComponent } from './filter-flyout/filter-flyout.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -43,7 +45,8 @@ import { FilterFlyoutComponent } from './filter-flyout/filter-flyout.component';
     DataTableScrollerDemoComponent,
     FormDataComponent,
     SearchComponent,
-    FilterFlyoutComponent
+    FilterFlyoutComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -51,6 +54,7 @@ import { FilterFlyoutComponent } from './filter-flyout/filter-flyout.component';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
+    AppRoutingModule,
     SlideOverlayModule,
     HttpClientModule,
     ScrollingModule

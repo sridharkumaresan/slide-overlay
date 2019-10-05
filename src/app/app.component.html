@@ -1,8 +1,12 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>Some Application</span>
-  </mat-toolbar-row>
-</mat-toolbar>
+<div class="app-container">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Some Application</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</div>
+
 <!-- <app-tab-demo></app-tab-demo> -->
 
 <!-- <mat-drawer-container
@@ -37,11 +41,11 @@
     </div>
   </mat-card-content>
 </mat-card> -->
-<mat-card style="margin: 0; padding: 0;">
+<!-- <mat-card style="margin: 0; padding: 0;">
   <mat-card-content>
     <app-tab-demo></app-tab-demo>
   </mat-card-content>
-</mat-card>
+</mat-card> -->
 <!-- <mat-card style="margin: 0; padding: 0;">
   <mat-card-content>
     <app-file-upload-list [fileSet]="files"></app-file-upload-list>

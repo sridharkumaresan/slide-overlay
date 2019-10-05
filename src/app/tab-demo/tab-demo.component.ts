@@ -62,6 +62,12 @@ export class TabDemoComponent implements OnInit, OnDestroy {
     }
   }
 
+  scrolled(scrolled) {
+    if(scrolled) {
+      this.loadMoreData();
+    }
+  }
+
   loadMoreData() {
     this.demoDataSource.loadData('asc');
   }

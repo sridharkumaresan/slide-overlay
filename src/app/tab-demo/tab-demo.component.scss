@@ -1,3 +1,6 @@
+:host {
+  flex: 1 1 100%;
+}
 .progress-container {
   height: 20px;
 }
@@ -8,5 +11,4 @@
   flex-direction: column;
   border: 1px solid lightgrey;
   background: #f2f2f2;
-  padding: 24px;
 }
