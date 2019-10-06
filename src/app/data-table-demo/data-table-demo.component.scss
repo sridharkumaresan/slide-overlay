@@ -2,7 +2,11 @@
   justify-content: flex-start;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 192px);
+  // height: calc(100vh - 192px);
+}
+.infinite-scroll-container {
+  height: calc(100vh - 260px);
+  overflow-y: auto;
 }
 
 app-scroll-container {

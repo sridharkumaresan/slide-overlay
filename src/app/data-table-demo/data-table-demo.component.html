@@ -4,9 +4,19 @@
   <button mat-raised-button color="accent" (click)="doAction(ACTIONS.RE_OPEN)">{{ACTIONS.RE_OPEN}}</button>
 </div>
 
-<app-scroll-container [more]="true"
+<!-- <app-scroll-container [more]="true"
                       (scrolled)="handleScroll($event)"
                       [class.full]="full"
                       [class.part]="!full">
   <app-data-table [data]="demoDataSource" [(selection)]="selection" (sortChange)="applySort($event)"></app-data-table>
-</app-scroll-container>
+</app-scroll-container> -->
+
+<div class="infinite-scroll-container"
+        infinite-scroll
+        [infiniteScrollDistance]="2"
+        [infiniteScrollThrottle]="50"
+        [scrollWindow]="false"
+        (scrolled)="onScroll()"
+        >
+  <app-data-table [data]="demoDataSource" [(selection)]="selection" (sortChange)="applySort($event)"></app-data-table>
+</div>

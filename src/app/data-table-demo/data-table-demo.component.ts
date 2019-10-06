@@ -40,7 +40,7 @@ export class DataTableDemoComponent implements OnInit {
 
   // TODO:: Change this logic
   hasMore = () => true; //!this.dataSource || this.dataSource.data.length < this.limit;
-
+  onScroll = () => this.handleScroll(true);
   handleScroll = (scrolled: boolean) => {
     // scrolled ? this.buildData() : _noop();
     scrolled ? this.loadMoreData(): _noop();

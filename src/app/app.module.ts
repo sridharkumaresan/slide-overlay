@@ -25,6 +25,8 @@ import { SearchComponent } from './search/search.component';
 import { FilterFlyoutComponent } from './filter-flyout/filter-flyout.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { HeaderComponent } from './header/header.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 
 
 @NgModule({
@@ -57,7 +59,8 @@ import { HeaderComponent } from './header/header.component';
     AppRoutingModule,
     SlideOverlayModule,
     HttpClientModule,
-    ScrollingModule
+    ScrollingModule,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent],
