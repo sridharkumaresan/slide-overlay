@@ -27,7 +27,7 @@ export class FileUploadComponent implements ControlValueAccessor{
     this.file = file;
   }
 
-  @ViewChild(MatRipple) ripple: MatRipple;
+  @ViewChild(MatRipple, {static: false}) ripple: MatRipple;
 
 
   constructor( private host: ElementRef<HTMLInputElement> ) {

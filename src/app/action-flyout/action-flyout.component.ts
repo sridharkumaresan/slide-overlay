@@ -16,6 +16,8 @@ export class ActionFlyoutComponent implements OnInit {
   loading$ = new Subject<boolean>();
   disableForm$ = new Subject<boolean>();
   items: any[] = [];
+  files: File[] = [];
+  left;
 
   constructor(private actionService: ActionService) {
     this.actionService.action$.pipe(
@@ -68,4 +70,16 @@ export class ActionFlyoutComponent implements OnInit {
       }
     )
   }
+
+  getFile(file: any) {
+    const _file: File = file.attachment;
+    this.left=false;
+    this.files.push(file);
+    console.log('Get Files method ', this.files);
+  }
+
+  upload() {
+    console.log('Uploading... ', this.files);
+  }
+
 }

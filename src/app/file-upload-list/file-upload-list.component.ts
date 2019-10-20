@@ -15,6 +15,7 @@ export class FileUploadListComponent implements OnInit, OnChanges {
   get fileSet() {
     return this._fileSet
   }
+  @Input() horizontal;
   constructor() { }
 
   ngOnInit() {

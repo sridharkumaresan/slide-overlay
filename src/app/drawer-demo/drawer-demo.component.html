@@ -1,0 +1,28 @@
+<mat-drawer-container>
+    <mat-drawer class="drawer" #main opened="false" mode="side">
+        <mat-drawer-container>
+            <mat-drawer  class="drawer" #sideDrawer opened="false" mode="side">
+                <div class="contents" style="margin-top: 72px;">
+                    Side Drawer Content
+                    <button mat-raised-button (click)="sideDrawer.toggle()">Close Me</button>
+                </div>
+            </mat-drawer>
+            <div class="contents" style="margin-top: 72px;">
+                Main Drawer Content
+                <button mat-raised-button (click)="sideDrawer.toggle()">Open Side Drawer</button>
+            </div>
+        </mat-drawer-container>
+        
+    </mat-drawer>
+    <mat-toolbar class="main header">
+        <mat-icon (click)="main.toggle()">
+            menu
+        </mat-icon>
+        <div>Header</div>
+    </mat-toolbar>
+    <div class="main contents">
+        Main drawer opened: {{main.opened}}
+        <div>Contents xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxxx xxxxxx xxxxxx</div>
+        <div style="height: 1000px">&nbsp;</div>
+    </div>
+</mat-drawer-container>

@@ -1,4 +1,4 @@
-<mat-list>
+<mat-list [ngClass]="{'horizontal': horizontal}">
   <mat-list-item *ngFor="let file of fileSet">
 
     <h4 mat-line>{{file.attachment.name}}</h4>
