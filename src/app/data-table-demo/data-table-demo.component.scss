@@ -22,3 +22,7 @@ app-scroll-container.full {
 app-scroll-container.part {
   flex-basis: calc(100vh - 240px);
 }
+
+.btn {
+  transition: all 1s ease-in-out 1s;
+}

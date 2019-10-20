@@ -1,7 +1,12 @@
-<div style="display: flex; width: 20%; justify-content: space-between; margin: 1em;">
-  <button mat-raised-button color="primary" (click)="doAction(ACTIONS.BREACH)">{{ACTIONS.BREACH}}</button>
-  <button mat-raised-button color="warn" (click)="doAction(ACTIONS.NO_BREACH)">{{ACTIONS.NO_BREACH}}</button>
-  <button mat-raised-button color="accent" (click)="doAction(ACTIONS.RE_OPEN)">{{ACTIONS.RE_OPEN}}</button>
+<div style="display: flex; justify-content: space-between; margin: 0 1em;">
+  <div style="display: flex; width: 50%; justify-content: space-between;">
+    <button mat-raised-button color="primary" (click)="doAction(ACTIONS.BREACH)">{{ACTIONS.BREACH}}</button>
+    <button mat-raised-button color="warn" (click)="doAction(ACTIONS.NO_BREACH)">{{ACTIONS.NO_BREACH}}</button>
+    <button mat-raised-button color="accent" (click)="doAction(ACTIONS.RE_OPEN)">{{ACTIONS.RE_OPEN}}</button>
+  </div>
+  <button (click)="scroll(target)" mat-fab aria-label="Example icon-button with a heart icon" class="btn" *ngIf="showIcon">
+    <mat-icon>arrow_upward</mat-icon>
+  </button>
 </div>
 
 <!-- <app-scroll-container [more]="true"
@@ -12,11 +17,13 @@
 </app-scroll-container> -->
 
 <div class="infinite-scroll-container"
+        #target
         infinite-scroll
         [infiniteScrollDistance]="2"
         [infiniteScrollThrottle]="50"
         [scrollWindow]="false"
         (scrolled)="onScroll()"
+        (scrolledUp)="onUp()"
         >
   <app-data-table [data]="demoDataSource" [(selection)]="selection" (sortChange)="applySort($event)"></app-data-table>
 </div>

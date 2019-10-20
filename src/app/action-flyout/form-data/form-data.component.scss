@@ -1,0 +1,19 @@
+:host {
+  flex: 1;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 100%;
+}
+.progress-container {
+  justify-content: flex-end;
+  display: flex;
+  min-height: 10px;
+  align-items: center;
+  position: relative;
+  top: -1em;
+  .bar {
+    width: 50%;
+  }
+}

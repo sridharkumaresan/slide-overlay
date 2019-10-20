@@ -11,9 +11,15 @@
   <mat-form-field class="example-full-width">
     <textarea formControlName="comment" matInput placeholder="Leave a comment"></textarea>
   </mat-form-field>
+  <div class="progress-container">
+    <mat-progress-bar [color]="color" [value]="value" [mode]="mode" [bufferValue]="bufferValue" class="bar"
+      appBarValue val="{{(commentValueChange$ | async).length}}" (dataChange)="setProgressValue($event)"></mat-progress-bar>
+  </div>
   <div style="display: flex; flex-direction: row; align-items: center;">
-    <button mat-raised-button color="primary" [attr.disabled]="isLoading">Submit</button>
+    <button mat-raised-button color="primary" [attr.disabled]="isLoading || form.invalid">Submit</button>
     <mat-spinner [diameter]="18" *ngIf="isLoading"></mat-spinner>
   </div>
 
 </form>
+
+<!-- appBarValue val="{{(commentValueChange$ | async).length}}" (dataChange)="progData = $event"  -->

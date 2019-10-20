@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: calc(100vh - 64px);
+  .main {
+    flex: 1 1 auto;
+    overflow: auto;
+  }
+  .header {
+    flex-shrink: 0;
+  }
+  .footer {
+    flex-shrink: 0;
+  }
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+.example-container form {
+  margin-bottom: 20px;
+}
+
+.example-container form > * {
+  margin: 5px 0;
+}
+
+.example-container .mat-radio-button {
+  margin: 0 12px;
+}
+
+::ng-deep .mat-tab-header {
+  position: fixed !important;
+  flex: 1;
+  width: 100%;
+}

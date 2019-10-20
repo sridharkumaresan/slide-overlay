@@ -11,6 +11,7 @@ import { MatSort } from '@angular/material';
   styleUrls: ['./data-table.component.scss'],
 })
 export class DataTableComponent implements OnInit, OnDestroy, AfterViewInit {
+  defaultSort = 'desc';
   // public gridData$ = new BehaviorSubject<any[]>([]);
   private _data;
   @ViewChild(MatSort, { static: false }) sort: MatSort;
@@ -48,6 +49,7 @@ export class DataTableComponent implements OnInit, OnDestroy, AfterViewInit {
   ngAfterViewInit(): void {
     this.sort.sortChange.pipe(
       tap((e) => {
+        console.log('sort', e);
         this.sortChange.emit(e);
       })
     )

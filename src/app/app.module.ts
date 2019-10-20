@@ -26,6 +26,9 @@ import { FilterFlyoutComponent } from './filter-flyout/filter-flyout.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { ScrollTopDirective } from './scroll-top.directive';
+import { BarValueDirective } from './action-flyout/form-data/bar-value.directive';
+import { RfiComponent } from './rfi/rfi.component';
 
 
 
@@ -48,7 +51,10 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     FormDataComponent,
     SearchComponent,
     FilterFlyoutComponent,
-    HeaderComponent
+    HeaderComponent,
+    ScrollTopDirective,
+    BarValueDirective,
+    RfiComponent
   ],
   imports: [
     BrowserAnimationsModule,

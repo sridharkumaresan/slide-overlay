@@ -18,7 +18,7 @@ export class DataTableDemoComponent implements OnInit {
   full: boolean = true;
   actionFlyoutData: ActionMaker;
   ACTIONS = ACTIONS;
-
+  showIcon: boolean = false;
   constructor(private demoService: DemoService, private actionService: ActionService) {
 
   }
@@ -43,6 +43,7 @@ export class DataTableDemoComponent implements OnInit {
   onScroll = () => this.handleScroll(true);
   handleScroll = (scrolled: boolean) => {
     // scrolled ? this.buildData() : _noop();
+
     scrolled ? this.loadMoreData(): _noop();
   }
 
@@ -56,6 +57,7 @@ export class DataTableDemoComponent implements OnInit {
   loadMoreData() {
     console.log('Loading More Data...');
     // this.demoDataSource.loadData('asc');
+    this.showIcon = true;
     this.scrollEmitter.emit(true);
   }
 
@@ -63,5 +65,14 @@ export class DataTableDemoComponent implements OnInit {
     console.log('Sorting Changed ', e.direction);
     this.demoDataSource.reset();
     this.loadMoreData();
+  }
+  scroll(el: HTMLElement) {
+    this.showIcon = false;
+    el.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'})
+  }
+  onUp(ev) {
   }
 }
