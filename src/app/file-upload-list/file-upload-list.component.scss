@@ -1,9 +1,12 @@
 .horizontal {
 padding: 0;
+max-height: 8em;
+overflow-y: auto;
 .mat-list-item {
     display: inline-block;
     height: auto;
     width: auto;
     border-right: 1px solid #bbb;
+    margin: 0.5em 0;
 }
 }
